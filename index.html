@@ -523,6 +523,14 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
+        function deepLinkModal(keyword) {
+            const url = window.location.href;
+            if(url.indexOf(keyword) !== -1) {
+                const target = document.getElementById(keyword);
+                openModal(target);
+            }
+        }
+
         function openModal($el) {
             $el.classList.add('is-active');
         }
@@ -559,6 +567,9 @@
                 closeAllModals();
             }
         });
+
+        deepLinkModal('geschaeftsbedingungen');
+        deepLinkModal('datenschutz');
     });
 </script>
 </body>
